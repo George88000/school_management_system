@@ -8,27 +8,33 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function UserView(){
+    public function UserView()
+    {
         // $allData = User::all();
-        $data['allData'] = User::all();
+        $data['allData'] = User::where('usertype', 'admin')->get();
         return view('backend.user.view_user', $data);
     }
 
-    public function UserAdd(){
+    public function UserAdd()
+    {
         return view('backend.user.add_user');
     }
 
-    public function UserStore(Request $request){
+    public function UserStore(Request $request)
+    {
         $validatedData = $request->validate([
             'email' => 'required|unique:users',
             'name' => 'required'
         ]);
         $data = new User();
-        $data -> usertype = $request->usertype;
-        $data -> name = $request->name;
-        $data -> email = $request->email;
-        $data -> password = bcrypt($request->password);
-        $data -> save();
+        $code = rand(0000, 9999);
+        $data->usertype = 'admin';
+        $data->name = $request->name;
+        $data->role = $request->role;
+        $data->email = $request->email;
+        $data->code = $code;
+        $data->password = bcrypt($code);
+        $data->save();
 
         $notification = array(
             'message' => 'User Inserted Successfully',
@@ -37,17 +43,19 @@ class UserController extends Controller
         return redirect()->route('user.view')->with($notification);
     }
 
-    public function UserEdit($id){
+    public function UserEdit($id)
+    {
         $editData = User::find($id);
         return view('backend.user.edit_user', compact('editData'));
     }
 
-    public function UserUpdate(Request $request, $id){
+    public function UserUpdate(Request $request, $id)
+    {
         $data = User::find($id);
-        $data -> usertype = $request->usertype;
-        $data -> name = $request->name;
-        $data -> email = $request->email;
-        $data -> save();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->role = $request->role;
+        $data->save();
 
         $notification = array(
             'message' => 'User Updated Successfully',
@@ -56,7 +64,8 @@ class UserController extends Controller
         return redirect()->route('user.view')->with($notification);
     }
 
-    public function UserDelete($id){
+    public function UserDelete($id)
+    {
         $user = User::find($id);
         $user->delete();
         $notification = array(

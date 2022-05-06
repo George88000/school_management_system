@@ -10,8 +10,8 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">User List</h3>
-                <a href="{{ route('user.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add User</a>
+                <h3 class="box-title">Assigned Subject List</h3>
+                <a href="{{ route('assign.subject.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add Assigned Subject</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -20,24 +20,18 @@
                       <thead>
                           <tr>
                               <th width="5%">SL</th>
-                              <th>Role</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Code</th>
+                              <th>Class Name</th>
                               <th width="25%">Action</th>
                           </tr>
                       </thead>
                       <tbody>
-                          @foreach ($allData as $key => $user)
+                          @foreach ($allData as $key => $assign)
                         <tr>
                             <td>{{ $key+1 }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->code }}</td>
+                            <td>{{ $assign['student_class']['name'] }}</td>
                             <td>
-                                <a href="{{ route('user.edit',$user->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('user.delete',$user->id) }}" id="delete" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('assign.subject.edit', $assign->class_id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('assign.subject.details', $assign->class_id) }}" class="btn btn-primary">Details</a>
                             </td>
                         </tr>
                           @endforeach

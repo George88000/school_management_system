@@ -10,8 +10,8 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">User List</h3>
-                <a href="{{ route('user.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add User</a>
+                <h3 class="box-title">School Subject List</h3>
+                <a href="{{ route('school.subject.add') }}" class="btn btn-rounded btn-success mb-5 float-right">Add School Subject</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -20,24 +20,18 @@
                       <thead>
                           <tr>
                               <th width="5%">SL</th>
-                              <th>Role</th>
                               <th>Name</th>
-                              <th>Email</th>
-                              <th>Code</th>
                               <th width="25%">Action</th>
                           </tr>
                       </thead>
                       <tbody>
-                          @foreach ($allData as $key => $user)
+                          @foreach ($allData as $key => $subject)
                         <tr>
                             <td>{{ $key+1 }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->code }}</td>
+                            <td>{{ $subject->name }}</td>
                             <td>
-                                <a href="{{ route('user.edit',$user->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('user.delete',$user->id) }}" id="delete" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('school.subject.edit',$subject->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('school.subject.delete',$subject->id) }}" id="delete" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                           @endforeach
