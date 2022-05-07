@@ -93,8 +93,8 @@
                             <td>{{ $value->student->code }}</td>
                             @endif
                             <td>
-                                <a href="" class="btn btn-info">Edit</a>
-                                <a href="" id="delete" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger">Promotion</a>
                             </td>
                         </tr>
                           @endforeach
@@ -136,8 +136,8 @@
                             <td>{{ $value->student->code }}</td>
                             @endif
                             <td>
-                                <a href="" class="btn btn-info">Edit</a>
-                                <a href="" id="delete" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger">Promotion</a>
                             </td>
                         </tr>
                           @endforeach

@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="controls">
-                                    <img src="{{ (!empty($user->image))? url('upload/user_images'.$user->image) : url('upload/no_image.jpg') }}"
+                                    <img src="{{ (!empty($user->image))? url('upload/user_images/'.$user->image) : url('upload/no_image.jpg') }}"
                                     style="width: 100px; height: 100px; border: 1px solid #000000;" id="showImage" alt="">
                                 </div>
                             </div>
