@@ -66,7 +66,7 @@
                               <th width="5%">SL</th>
                               <th>Name</th>
                               <th>ID No</th>
-                              <th>Role</th>
+                              <th>Roll</th>
                               <th>Year</th>
                               <th>Class</th>
                               <th>Image</th>
@@ -82,7 +82,7 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $value->student->name }}</td>
                             <td>{{ $value->student->id_no }}</td>
-                            <td>{{ $value->role }}</td>
+                            <td>{{ $value->roll }}</td>
                             <td>{{ $value['student_year']['name'] }}</td>
                             <td>{{ $value->student_class->name }}</td>
                             <td>
@@ -93,8 +93,9 @@
                             <td>{{ $value->student->code }}</td>
                             @endif
                             <td>
-                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger">Promotion</a>
+                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger"><i class="fa fa-check"></a>
+                                <a href="{{ route('student.registration.details', $value->student_id) }}" target="_blank" title="Details" class="btn btn-primary"><i class="fa fa-eye"></a>
                             </td>
                         </tr>
                           @endforeach
@@ -109,7 +110,7 @@
                               <th width="5%">SL</th>
                               <th>Name</th>
                               <th>ID No</th>
-                              <th>Role</th>
+                              <th>Roll</th>
                               <th>Year</th>
                               <th>Class</th>
                               <th>Image</th>
@@ -125,7 +126,7 @@
                             <td>{{ $key+1 }}</td>
                             <td>{{ $value->student->name }}</td>
                             <td>{{ $value->student->id_no }}</td>
-                            <td>{{ $value->role }}</td>
+                            <td>{{ $value->roll }}</td>
                             <td>{{ $value['student_year']['name'] }}</td>
                             <td>{{ $value->student_class->name }}</td>
                             <td>
@@ -136,8 +137,9 @@
                             <td>{{ $value->student->code }}</td>
                             @endif
                             <td>
-                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger">Promotion</a>
+                                <a href="{{ route('student.registration.edit', $value->student_id) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                <a href="{{ route('student.registration.promotion', $value->student_id) }}" class="btn btn-danger"><i class="fa fa-check"></i></a>
+                                <a href="{{ route('student.registration.details', $value->student_id) }}" target="_blank" title="Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                           @endforeach
