@@ -28,7 +28,7 @@
 </head>
 <body>
 @php
-    $registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id', '2')->where('class_id', $details->class_id)->first();
+    $registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id', '3')->where('class_id', $details->class_id)->first();
 
     $originalfee = $registrationfee->amount;
     $discount = $details['discount']['discount'];
@@ -38,11 +38,11 @@
 <table id="customers">
   <tr>
     <td>
-      <h2>
-          <?php $image_path = '/upload/easyschool.png'; ?>
-          <img src="{{ public_path() . $image_path }}" width="200" height="100">
-      </h2>
-  </td>
+        <h2>
+            <?php $image_path = '/upload/easyschool.png'; ?>
+            <img src="{{ public_path() . $image_path }}" width="200" height="100">
+        </h2>
+    </td>
     <td>
         <h2>Easy School ERP</h2>
         <p>School Address</p>
@@ -90,7 +90,7 @@
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Registration Fee</b></td>
+    <td><b>Monthly Fee</b></td>
     <td>{{ $originalfee }} $</td>
   </tr>
   <tr>
@@ -100,7 +100,7 @@
   </tr>
   <tr>
     <td>9</td>
-    <td><b>Fee for {{ $details->student->name }} {{ $details->student->fname }}</b></td>
+    <td><b>Fee for {{ $details->student->name }} {{ $details->student->fname }} of {{ ucfirst($month)}}</b></td>
     <td>{{ $finalfee }} $</td>
   </tr>
 </table>
@@ -147,7 +147,7 @@
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Registration Fee</b></td>
+    <td><b>Monthly Fee</b></td>
     <td>{{ $originalfee }} $</td>
   </tr>
   <tr>
@@ -157,7 +157,7 @@
   </tr>
   <tr>
     <td>9</td>
-    <td><b>Fee for {{ $details->student->name }} {{ $details->student->fname }}</b></td>
+    <td><b>Fee for {{ $details->student->name }} {{ $details->student->fname }} of {{ $month }}</b></td>
     <td>{{ $finalfee }} $ </td>
   </tr>
 </table>
